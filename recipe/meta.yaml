@@ -11,21 +11,21 @@ source:
   sha256: 44b1b16c7a3c973d0a049d5e8bb8f54bedee5810e0b174acd7ebfc9fa9f2475e
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
   build:
     - toolchain
     - libtool
-    - gmp
+    - gmp >=5.0.1,<7
     - libpng >=1.6.28,<1.7
     - boost-cpp 1.63.*
     - python
     - pkgconfig
     - m4ri
   run:
-    - gmp
+    - gmp >=5.0.1,<7
     - libpng >=1.6.28,<1.7
     - boost-cpp 1.63.*
     - m4ri
