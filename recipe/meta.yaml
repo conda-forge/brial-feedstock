@@ -20,16 +20,14 @@ requirements:
     - libtool
     - gmp >=5.0.1,<7
     - libpng >=1.6.28,<1.7
-    - boost-cpp 1.64.*
-    - boost 1.64.*
+    - boost-cpp 1.66.*
     - python
     - pkgconfig
     - m4ri
   run:
     - gmp >=5.0.1,<7
     - libpng >=1.6.28,<1.7
-    - boost-cpp 1.64.*
-    - boost 1.64.*
+    - boost-cpp 1.66.*
     - m4ri
     - python
 
