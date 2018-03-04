@@ -21,6 +21,7 @@ requirements:
     - gmp >=5.0.1,<7
     - libpng >=1.6.28,<1.7
     - boost-cpp 1.64.*
+    - boost
     - python
     - pkgconfig
     - m4ri
@@ -28,6 +29,7 @@ requirements:
     - gmp >=5.0.1,<7
     - libpng >=1.6.28,<1.7
     - boost-cpp 1.64.*
+    - boost
     - m4ri
     - python
 
