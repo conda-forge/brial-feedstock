@@ -9,7 +9,7 @@ export CXXFLAGS="-O2 -g -fPIC $CXXFLAGS"
 
 chmod +x configure
 
-./configure --prefix=$PREFIX --libdir=$PREFIX/lib
+./configure --prefix=$PREFIX --libdir=$PREFIX/lib --with-boost-libdir=$PREFIX/lib
 
 make
 make check
