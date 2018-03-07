@@ -1,6 +1,4 @@
 #!/bin/bash
-
-
 export CPPFLAGS="-I$PREFIX/include $CPPFLAGS"
 export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PREFIX/lib"
