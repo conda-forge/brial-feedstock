@@ -1,4 +1,4 @@
-{% set version = "0.8.7" %}
+{% set version = "1.2.2" %}
 {% set name = "brial" %}
 
 package:
@@ -8,10 +8,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/BRiAl/BRiAl/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.bz2
-  sha256: ed7d1d15e247b86aab02c1b744e0f0f4c7ce7aa89de7ceb15b07a4141762aefc
+  sha256: 118c492c5f122f2e66dbff52fe9a660f7c4ff81da5afbed225967dded7d9a10e
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
