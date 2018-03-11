@@ -1,0 +1,66 @@
+From a2ac0a2c6fa56cf7a44bfd48a12fc0a914c82243 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Sun, 11 Mar 2018 02:28:18 +0100
+Subject: [PATCH] fixing uninitialized iterators
+
+---
+ libbrial/include/polybori/orderings/COrderingBase.h | 6 ++++--
+ libbrial/src/DegLexOrder.cc                         | 2 +-
+ tests/DegLexOrderTest.cc                            | 3 ---
+ 3 files changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/libbrial/include/polybori/orderings/COrderingBase.h b/libbrial/include/polybori/orderings/COrderingBase.h
+index a6ae3a63..63c26dde 100644
+--- a/libbrial/include/polybori/orderings/COrderingBase.h
++++ b/libbrial/include/polybori/orderings/COrderingBase.h
+@@ -46,6 +46,8 @@ class COrderingBase:
+   /// Type of *this
+   typedef COrderingBase self;
+ 
++  static const std::vector<idx_type> empty;
++
+ public:
+   /// @name Adopt polynomial type definitions
+   //@{
+@@ -145,8 +147,8 @@ public:
+ 
+   /// @name interface for block orderings
+   //@{
+-  virtual block_iterator blockBegin() const { return block_iterator(); }
+-  virtual block_iterator blockEnd() const { return block_iterator(); }
++  virtual block_iterator blockBegin() const { return empty.begin(); }
++  virtual block_iterator blockEnd() const { return empty.end(); }
+   virtual void appendBlock(checked_idx_type) {}
+   virtual void clearBlocks() {}
+   //@}
+diff --git a/libbrial/src/DegLexOrder.cc b/libbrial/src/DegLexOrder.cc
+index c49256fc..f4edab72 100644
+--- a/libbrial/src/DegLexOrder.cc
++++ b/libbrial/src/DegLexOrder.cc
+@@ -31,7 +31,7 @@
+ 
+ BEGIN_NAMESPACE_PBORI
+ 
+-
++const std::vector<int> COrderingBase::empty;
+ 
+ // Comparison of monomials
+ DegLexOrder::comp_type
+diff --git a/tests/DegLexOrderTest.cc b/tests/DegLexOrderTest.cc
+index 0def01b3..54c19e09 100644
+--- a/tests/DegLexOrderTest.cc
++++ b/tests/DegLexOrderTest.cc
+@@ -224,10 +224,7 @@ BOOST_AUTO_TEST_CASE(test_blocks) {
+   order.clearBlocks();
+   start = order.blockBegin();
+   finish = order.blockEnd();
+-// This test fails with clang's libcxx
+-#ifndef _LIBCPP_VERSION
+   BOOST_CHECK(start==finish);
+-#endif
+ }
+ 
+ 
+-- 
+2.16.2
+

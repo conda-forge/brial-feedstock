@@ -9,6 +9,8 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/BRiAl/BRiAl/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.bz2
   sha256: 118c492c5f122f2e66dbff52fe9a660f7c4ff81da5afbed225967dded7d9a10e
+  patches:
+    - 0001-fixing-uninitialized-iterators.patch
 
 build:
   number: 0
