@@ -18,6 +18,7 @@ build:
 
 requirements:
   build:
+    - automake
     - toolchain
     - libtool
     - gmp >=5.0.1,<7
