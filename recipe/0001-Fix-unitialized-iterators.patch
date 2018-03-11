@@ -1,0 +1,194 @@
+From 8f453accb48f13f2080d4a2c5af0c308f7dfcd59 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Sun, 11 Mar 2018 03:03:26 +0100
+Subject: [PATCH] Fix unitialized iterators
+
+I did not really know where to put the initializer of the empty vector so I put
+it in its own file. I hope that's alright.
+---
+ libbrial/include/polybori/orderings/COrderingBase.h |  7 +++++--
+ libbrial/src/COrderingBase.cc                       | 21 +++++++++++++++++++++
+ libbrial/src/DegLexOrder.cc                         |  2 --
+ libbrial/src/Makefile.am                            |  1 +
+ tests/DegLexOrderTest.cc                            |  6 ------
+ tests/DegRevLexAscOrderTest.cc                      |  6 ------
+ tests/LexOrderTest.cc                               | 12 ------------
+ 7 files changed, 27 insertions(+), 28 deletions(-)
+ create mode 100644 libbrial/src/COrderingBase.cc
+
+diff --git a/libbrial/include/polybori/orderings/COrderingBase.h b/libbrial/include/polybori/orderings/COrderingBase.h
+index a6ae3a63..2c1f9407 100644
+--- a/libbrial/include/polybori/orderings/COrderingBase.h
++++ b/libbrial/include/polybori/orderings/COrderingBase.h
+@@ -46,6 +46,9 @@ class COrderingBase:
+   /// Type of *this
+   typedef COrderingBase self;
+ 
++  // an empty vector to be able to return valid iterators in the implementation of blockBegin()/blockEnd()
++  static const std::vector<idx_type> empty;
++
+ public:
+   /// @name Adopt polynomial type definitions
+   //@{
+@@ -145,8 +148,8 @@ public:
+ 
+   /// @name interface for block orderings
+   //@{
+-  virtual block_iterator blockBegin() const { return block_iterator(); }
+-  virtual block_iterator blockEnd() const { return block_iterator(); }
++  virtual block_iterator blockBegin() const { return empty.begin(); }
++  virtual block_iterator blockEnd() const { return empty.end(); }
+   virtual void appendBlock(checked_idx_type) {}
+   virtual void clearBlocks() {}
+   //@}
+diff --git a/libbrial/src/COrderingBase.cc b/libbrial/src/COrderingBase.cc
+new file mode 100644
+index 00000000..c5c09f1b
+--- /dev/null
++++ b/libbrial/src/COrderingBase.cc
+@@ -0,0 +1,21 @@
++// -*- c++ -*-
++//*****************************************************************************
++/** @file COrderingBase.cc
++ *
++ * @author Julian Rüth
++ * @date 2018-03-11
++ *
++ * Initializes the members of COrderingBase. 
++ *
++ * @par Copyright:
++ *   (c) 2018 Julian Rüth
++**/
++//*****************************************************************************
++
++#include <polybori/orderings/COrderingBase.h>
++
++BEGIN_NAMESPACE_PBORI
++
++const std::vector<int> COrderingBase::empty;
++
++END_NAMESPACE_PBORI
+diff --git a/libbrial/src/DegLexOrder.cc b/libbrial/src/DegLexOrder.cc
+index c49256fc..3e29a783 100644
+--- a/libbrial/src/DegLexOrder.cc
++++ b/libbrial/src/DegLexOrder.cc
+@@ -31,8 +31,6 @@
+ 
+ BEGIN_NAMESPACE_PBORI
+ 
+-
+-
+ // Comparison of monomials
+ DegLexOrder::comp_type
+ DegLexOrder::compare(const monom_type& lhs, const monom_type& rhs) const {
+diff --git a/libbrial/src/Makefile.am b/libbrial/src/Makefile.am
+index 2c626de5..540bff84 100644
+--- a/libbrial/src/Makefile.am
++++ b/libbrial/src/Makefile.am
+@@ -16,6 +16,7 @@ libbrial_base_la_SOURCES = \
+ 	CCuddFirstIter.cc \
+ 	CCuddLastIter.cc \
+ 	CErrorInfo.cc \
++	COrderingBase.cc \
+ 	DegLexOrder.cc \
+ 	DegRevLexAscOrder.cc \
+ 	LexOrder.cc \
+diff --git a/tests/DegLexOrderTest.cc b/tests/DegLexOrderTest.cc
+index 0def01b3..da37cc39 100644
+--- a/tests/DegLexOrderTest.cc
++++ b/tests/DegLexOrderTest.cc
+@@ -20,9 +20,6 @@ using boost::test_tools::output_test_stream;
+ 
+ #include <polybori/DegLexOrder.h>
+ 
+-// make sure we can find _LIBCPP_VERSION if it exists
+-#include <ciso646>
+-
+ USING_NAMESPACE_PBORI
+ 
+ class Fdeglex {
+@@ -224,10 +221,7 @@ BOOST_AUTO_TEST_CASE(test_blocks) {
+   order.clearBlocks();
+   start = order.blockBegin();
+   finish = order.blockEnd();
+-// This test fails with clang's libcxx
+-#ifndef _LIBCPP_VERSION
+   BOOST_CHECK(start==finish);
+-#endif
+ }
+ 
+ 
+diff --git a/tests/DegRevLexAscOrderTest.cc b/tests/DegRevLexAscOrderTest.cc
+index 5a109ccc..bf7e1a5a 100644
+--- a/tests/DegRevLexAscOrderTest.cc
++++ b/tests/DegRevLexAscOrderTest.cc
+@@ -20,9 +20,6 @@ using boost::test_tools::output_test_stream;
+ 
+ #include <polybori/DegRevLexAscOrder.h>
+ 
+-// make sure we can find _LIBCPP_VERSION if it exists
+-#include <ciso646>
+-
+ USING_NAMESPACE_PBORI
+ 
+ struct Fdegrevlex {
+@@ -194,10 +191,7 @@ BOOST_AUTO_TEST_CASE(test_blocks) {
+   order.clearBlocks();
+   start = order.blockBegin();
+   finish = order.blockEnd();
+-// This test fails with clang's libcxx
+-#ifndef _LIBCPP_VERSION
+   BOOST_CHECK(start==finish);
+-#endif
+ }
+ 
+ 
+diff --git a/tests/LexOrderTest.cc b/tests/LexOrderTest.cc
+index e2ced49b..e167b29c 100644
+--- a/tests/LexOrderTest.cc
++++ b/tests/LexOrderTest.cc
+@@ -20,9 +20,6 @@ using boost::test_tools::output_test_stream;
+ 
+ #include <polybori/LexOrder.h>
+ 
+-// make sure we can find _LIBCPP_VERSION if it exists
+-#include <ciso646>
+-
+ USING_NAMESPACE_PBORI
+ 
+ 
+@@ -150,20 +147,14 @@ BOOST_AUTO_TEST_CASE(test_blocks) {
+   output_test_stream output;
+   BoolePolyRing::block_iterator start(order.blockBegin()),finish(order.blockEnd());
+ 
+-// This test fails with clang's libcxx
+-#ifndef _LIBCPP_VERSION
+   BOOST_CHECK(start == finish);
+-#endif
+   BOOST_CHECK_THROW(order.appendBlock(-1), std::exception);
+   order.appendBlock(0);
+   order.appendBlock(2);
+   order.appendBlock(6);
+   start = order.blockBegin();
+   finish = order.blockEnd();
+-// This test fails with clang's libcxx
+-#ifndef _LIBCPP_VERSION
+   BOOST_CHECK(start == finish);
+-#endif
+   
+   BOOST_CHECK(order.lieInSameBlock(0,1));
+   BOOST_CHECK(order.lieInSameBlock(-1,4));
+@@ -171,10 +162,7 @@ BOOST_AUTO_TEST_CASE(test_blocks) {
+   order.clearBlocks();
+   start = order.blockBegin();
+   finish = order.blockEnd();
+-// This test fails with clang's libcxx
+-#ifndef _LIBCPP_VERSION
+   BOOST_CHECK(start==finish);
+-#endif
+ }
+ 
+ 
+-- 
+2.16.2
+
