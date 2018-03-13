@@ -1,4 +1,4 @@
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 {% set name = "brial" %}
 
 package:
@@ -8,9 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/BRiAl/BRiAl/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.bz2
-  sha256: 118c492c5f122f2e66dbff52fe9a660f7c4ff81da5afbed225967dded7d9a10e
-  patches:
-    - 0001-Fix-unitialized-iterators.patch
+  sha256: 3ed7172ba99e1edbf23e27a77229e06e7b7dd3316920e3d44d311c558df9b356
 
 build:
   number: 0
@@ -18,7 +16,6 @@ build:
 
 requirements:
   build:
-    - automake
     - toolchain
     - libtool
     - gmp >=5.0.1,<7
