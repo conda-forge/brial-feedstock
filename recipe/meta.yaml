@@ -11,25 +11,8 @@ source:
   sha256: 3ed7172ba99e1edbf23e27a77229e06e7b7dd3316920e3d44d311c558df9b356
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
-
-requirements:
-  build:
-    - toolchain
-    - libtool
-    - gmp >=5.0.1,<7
-    - libpng >=1.6.28,<1.7
-    - boost-cpp 1.66.*
-    - python
-    - pkgconfig
-    - m4ri
-  run:
-    - gmp >=5.0.1,<7
-    - libpng >=1.6.28,<1.7
-    - boost-cpp 1.66.*
-    - m4ri
-    - python
 
 test:
   commands:
@@ -38,6 +21,36 @@ test:
     - test -f ${PREFIX}/lib/lib{{ name }}.a
     - test -f ${PREFIX}/lib/lib{{ name }}.so        # [linux]
     - test -f ${PREFIX}/lib/lib{{ name }}.dylib     # [osx]
+
+outputs:
+  - name: libbrial
+    script: build_libbrial.sh
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - libtool
+        - pkgconfig
+      host:
+        - gmp
+        - libpng
+        - boost-cpp
+        - m4ri
+      run:
+        - gmp
+        - libpng
+        - boost-cpp
+        - m4ri
+
+  - name: brial
+    build:
+      noarch: python
+      script: cd sage-brial && python setup.py install
+    requirements:
+      build:
+        - python
+      run:
+        - python
+        - {{ pin_subpackage('libbrial', exact=True) }}
 
 about:
   home: https://github.com/BRiAl/BRiAl
