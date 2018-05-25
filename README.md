@@ -23,14 +23,17 @@ reference implementation for Gröbner basis computation.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/brial-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/brial-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/brial-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/brial-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/brial-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/brial-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/brial-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/brial-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/brial/badges/version.svg)](https://anaconda.org/conda-forge/brial)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/brial/badges/downloads.svg)](https://anaconda.org/conda-forge/brial)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-brial-green.svg)](https://anaconda.org/conda-forge/brial) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/brial.svg)](https://anaconda.org/conda-forge/brial) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/brial.svg)](https://anaconda.org/conda-forge/brial) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/brial.svg)](https://anaconda.org/conda-forge/brial) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libbrial-green.svg)](https://anaconda.org/conda-forge/libbrial) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libbrial.svg)](https://anaconda.org/conda-forge/libbrial) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libbrial.svg)](https://anaconda.org/conda-forge/libbrial) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libbrial.svg)](https://anaconda.org/conda-forge/libbrial) |
 
 Installing brial
 ================
@@ -41,10 +44,10 @@ Installing `brial` from the `conda-forge` channel can be achieved by adding `con
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `brial` can be installed with:
+Once the `conda-forge` channel has been enabled, `brial, libbrial` can be installed with:
 
 ```
-conda install brial
+conda install brial libbrial
 ```
 
 It is possible to list all of the versions of `brial` available on your platform with:
