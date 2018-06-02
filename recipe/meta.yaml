@@ -45,7 +45,8 @@ outputs:
         - zlib
 
   - name: brial
-    noarch: python
+    build:
+      noarch: python
     script: build_brial.sh
     requirements:
       host:
