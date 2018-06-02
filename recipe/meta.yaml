@@ -36,11 +36,13 @@ outputs:
         - libpng
         - boost-cpp
         - m4ri
+        - zlib
       run:
         - gmp
         - libpng
         - boost-cpp
         - m4ri
+        - zlib
 
   - name: brial
     build:
@@ -49,6 +51,7 @@ outputs:
     requirements:
       host:
         - python
+        - {{ pin_subpackage('libbrial', exact=True) }}
       run:
         - python
         - {{ pin_subpackage('libbrial', exact=True) }}
