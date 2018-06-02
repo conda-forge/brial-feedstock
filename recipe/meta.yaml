@@ -51,6 +51,7 @@ outputs:
     requirements:
       host:
         - python
+        - pip
         - {{ pin_subpackage('libbrial', exact=True) }}
       run:
         - python
