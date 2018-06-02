@@ -1,1 +1,1 @@
-cd sage-brial && python setup.py install
+cd sage-brial && $PREFIX/bin/python setup.py install
