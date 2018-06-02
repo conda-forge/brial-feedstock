@@ -45,9 +45,8 @@ outputs:
         - zlib
 
   - name: brial
-    build:
-      noarch: python
-      script: cd sage-brial && python setup.py install
+    noarch: python
+    script: build_brial.sh
     requirements:
       host:
         - python
