@@ -33,13 +33,13 @@ outputs:
       host:
         - gmp
         - libpng
-        - boost-cpp
+        - boost
         - m4ri
         - zlib
       run:
         - gmp
         - libpng
-        - boost-cpp
+        - boost
         - m4ri
         - zlib
 
