@@ -1,4 +1,4 @@
-boost_cpp:
+boost:
 - 1.68.0
 c_compiler:
 - toolchain_c
@@ -13,7 +13,7 @@ gmp:
 libpng:
 - 1.6.35
 pin_run_as_build:
-  boost-cpp:
+  boost:
     max_pin: x.x.x
   gmp:
     max_pin: x
