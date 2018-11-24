@@ -2,7 +2,7 @@
 
 chmod +x configure
 
-./configure --prefix=$PREFIX --libdir=$PREFIX/lib --with-boost-libdir=$PREFIX/lib
+./configure --prefix=$PREFIX --libdir=$PREFIX/lib --with-boost=$PREFIX --with-boost-libdir=$PREFIX/lib
 
 make
 make check
