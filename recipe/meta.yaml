@@ -29,7 +29,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - libtool
-        - pkgconfig
+        - pkg-config
       host:
         - gmp
         - libpng
