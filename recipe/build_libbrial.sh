@@ -2,8 +2,15 @@
 
 chmod +x configure
 
-./configure --prefix=$PREFIX --libdir=$PREFIX/lib --with-boost-libdir=$PREFIX/lib
+export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+sed -i.bak 's|-fdebug-prefix-map.*||g' "${PREFIX}/lib/pkgconfig/m4ri.pc"
+rm  "${PREFIX}/lib/pkgconfig/m4ri.pc.bak"
 
-make
-make check
+# Get rid of any `.la`
+find $PREFIX/lib -name '*.la' -delete
+
+./configure --prefix=$PREFIX --libdir=$PREFIX/lib --with-boost=$PREFIX --with-boost-libdir=$PREFIX/lib
+
+make -j${CPU_COUNT}
+make check -j${CPU_COUNT}
 make install
