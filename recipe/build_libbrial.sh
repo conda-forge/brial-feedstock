@@ -10,6 +10,6 @@ find $PREFIX/lib -name '*.la' -delete
 
 ./configure --prefix=$PREFIX --libdir=$PREFIX/lib --with-boost=$PREFIX --with-boost-libdir=$PREFIX/lib
 
-make
-make check
+make -j${CPU_COUNT}
+make check -j${CPU_COUNT}
 make install
