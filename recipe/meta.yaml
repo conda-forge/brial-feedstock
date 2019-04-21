@@ -36,12 +36,14 @@ outputs:
         - boost
         - m4ri
         - zlib
+        - libgd
       run:
         - gmp
         - libpng
         - boost
         - m4ri
         - zlib
+        - libgd
 
   - name: brial
     build:
