@@ -41,14 +41,14 @@ outputs:
       host:
         - gmp
         - libpng
-        - boost
+        - boost-cpp
         - m4ri
         - zlib
         - libgd
       run:
         - gmp
         - libpng
-        - boost
+        - boost-cpp
         - m4ri
         - zlib
         - libgd
