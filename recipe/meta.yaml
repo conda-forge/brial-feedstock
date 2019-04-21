@@ -61,10 +61,10 @@ outputs:
       host:
         - python
         - pip
-        - {{ pin_subpackage('libbrial', exact=True) }}
+        - libbrial {{ version }}
       run:
         - python
-        - {{ pin_subpackage('libbrial', exact=True) }}
+        - libbrial {{ version }}
 
 about:
   home: https://github.com/BRiAl/BRiAl
