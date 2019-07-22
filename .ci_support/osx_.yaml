@@ -14,8 +14,6 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '4'
-gmp:
-- '6'
 libpng:
 - 1.6.35
 macos_machine:
@@ -25,8 +23,6 @@ macos_min_version:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  gmp:
-    max_pin: x
   libpng:
     max_pin: x.x
   zlib:
