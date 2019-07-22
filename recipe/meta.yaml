@@ -10,7 +10,7 @@ source:
   sha256: c4921d5008ac9122452e6f93abb696ef21ceac8e7170008ea7c7b05508da8d34
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -39,19 +39,14 @@ outputs:
         - libtool
         - pkg-config
       host:
-        - gmp
         - libpng
         - boost-cpp
         - m4ri
         - zlib
-        - libgd
       run:
-        - gmp
         - libpng
-        - boost-cpp
         - m4ri
         - zlib
-        - libgd
 
   - name: brial
     build:
