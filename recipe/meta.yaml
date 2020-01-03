@@ -19,6 +19,7 @@ requirements:
     - {{ compiler('cxx') }}
     - libtool
     - pkg-config
+    - make
 
 test:
   commands:
@@ -38,6 +39,7 @@ outputs:
         - {{ compiler('cxx') }}
         - libtool
         - pkg-config
+        - make
       host:
         - libpng
         - boost-cpp
