@@ -1,0 +1,6 @@
+brial-1.2.7-pyh9f0ad1d_1:
+  ci: azure
+  subdir: linux-64
+brial-1.2.7-pyhc8dfbb8_1:
+  ci: azure
+  subdir: linux-64
