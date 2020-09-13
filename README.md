@@ -5,7 +5,7 @@ Home: https://github.com/BRiAl/BRiAl
 
 Package license: GPLv2+
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Brial - successor to PolyBoRi
 
@@ -35,7 +35,7 @@ Current build status
     <td>Drone</td>
     <td>
       <a href="https://cloud.drone.io/conda-forge/brial-feedstock">
-        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/brial-feedstock/master.svg?label=Linux">
       </a>
     </td>
   </tr>
@@ -52,43 +52,65 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux</td>
+              <td>linux_64_boost_cpp1.72.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.72.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64</td>
+              <td>linux_64_boost_cpp1.74.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.74.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le</td>
+              <td>linux_aarch64_boost_cpp1.72.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_boost_cpp1.72.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx</td>
+              <td>linux_aarch64_boost_cpp1.74.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=osx&configuration=osx_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_boost_cpp1.74.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_boost_cpp1.72.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_boost_cpp1.72.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_boost_cpp1.74.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_boost_cpp1.74.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_boost_cpp1.72.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.72.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_boost_cpp1.74.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.74.0" alt="variant">
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
     </td>
   </tr>
 </table>
