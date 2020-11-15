@@ -15,8 +15,6 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - libtool
@@ -26,7 +24,6 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/include/polybori.h
-    - test -f ${PREFIX}/lib/lib{{ name }}.a
     - test -f ${PREFIX}/lib/lib{{ name }}.so        # [linux]
     - test -f ${PREFIX}/lib/lib{{ name }}.dylib     # [osx]
     # Cannot run tests for python library as sageruntime is required.
@@ -42,6 +39,7 @@ outputs:
         - libtool
         - pkg-config
         - make
+        - gnuconfig
       host:
         - libpng
         - boost-cpp
@@ -57,6 +55,9 @@ outputs:
       noarch: python
     script: build_brial.sh
     requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
         - python
         - pip
@@ -67,8 +68,8 @@ outputs:
 
 about:
   home: https://github.com/BRiAl/BRiAl
-  license: GPLv2+
-  license_file: {{ SRC_DIR }}/LICENSE
+  license: GPL-2.0-or-later
+  license_file: LICENSE
   summary: Brial - successor to PolyBoRi
   description: |
     The core of PolyBoRi is a C++ library, which provides high-level data
