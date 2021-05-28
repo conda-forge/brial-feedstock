@@ -5,9 +5,11 @@ Home: https://github.com/BRiAl/BRiAl
 
 Package license: GPLv2+
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/brial-feedstock/blob/master/LICENSE.txt)
 
 Summary: Brial - successor to PolyBoRi
+
+Development: https://github.com/BRiAl/BRiAl
 
 The core of PolyBoRi is a C++ library, which provides high-level data
 types for Boolean polynomials and monomials, exponent vectors, as well
@@ -105,6 +107,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.74.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3760&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/brial-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr>
