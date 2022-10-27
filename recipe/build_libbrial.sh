@@ -14,7 +14,8 @@ find $PREFIX/lib -name '*.la' -delete
 ./configure --prefix=$PREFIX --libdir=$PREFIX/lib --with-boost=$PREFIX --with-boost-libdir=$PREFIX/lib --disable-static
 
 make -j${CPU_COUNT}
-if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]
+then
   make check -j${CPU_COUNT} || { cat tests/test-suite.log ; exit 1 } ;
 fi
 make install
