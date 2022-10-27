@@ -15,6 +15,6 @@ find $PREFIX/lib -name '*.la' -delete
 
 make -j${CPU_COUNT}
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
-  make check -j${CPU_COUNT} || { cat tests/test-suite.log ; exit 1 }
+  make check -j${CPU_COUNT} || { cat tests/test-suite.log ; exit 1 } ;
 fi
 make install
