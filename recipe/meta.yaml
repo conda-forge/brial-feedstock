@@ -1,4 +1,4 @@
-{% set version = "1.2.11" %}
+{% set version = "1.2.12" %}
 {% set name = "brial-split" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/BRiAl/BRiAl/releases/download/{{ version }}/brial-{{ version }}.tar.bz2
-  sha256: 6c0f622009dcd9928295d748226baa9cdc1a87c32552e13772fddf95bbb6f02c
+  sha256: ca009e3722dd3f0a60d15501caed1413146c80abced57423e32ae0116f407494
 
 build:
   number: 0
