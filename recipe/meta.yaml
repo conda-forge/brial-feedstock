@@ -42,7 +42,7 @@ outputs:
         - gnuconfig
       host:
         - libpng
-        - libboost-headers
+        - libboost-devel
         - m4ri
         - zlib
       run:
