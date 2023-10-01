@@ -1,11 +1,11 @@
-About brial-split
-=================
+About brial-split-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/brial-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/BRiAl/BRiAl
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/brial-feedstock/blob/main/LICENSE.txt)
 
 Summary: Brial - successor to PolyBoRi
 
@@ -26,14 +26,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/brial-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/brial-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
