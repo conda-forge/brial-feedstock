@@ -10,7 +10,7 @@ source:
   sha256: ca009e3722dd3f0a60d15501caed1413146c80abced57423e32ae0116f407494
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   ignore_run_exports_from:
     - libboost-devel
@@ -35,6 +35,11 @@ test:
 outputs:
   - name: libbrial
     script: build_libbrial.sh
+    run_exports:
+      # Releases of brial are very rare. 1.2.11 seems to have changed
+      # inheritance structure, which might be a breaking ABI change so we pin
+      # exactly.
+      - {{ pin_subpackage("libbrial", max_pin="x.x.x") }}
     requirements:
       build:
         - {{ compiler('c') }}
