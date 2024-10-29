@@ -70,6 +70,7 @@ outputs:
       host:
         - python
         - pip
+        - setuptools
         - libbrial {{ version }}
       run:
         - python
