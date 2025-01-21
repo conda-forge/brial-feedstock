@@ -1,8 +1,7 @@
 {% set version = "1.2.12" %}
-{% set name = "brial-split" %}
 
 package:
-  name: {{ name }}
+  name: brial-split
   version: {{ version }}
 
 source:
@@ -23,14 +22,6 @@ requirements:
     - libtool
     - pkg-config
     - make
-
-test:
-  commands:
-    - test -f ${PREFIX}/include/polybori.h
-    - test -f ${PREFIX}/lib/lib{{ name }}.so        # [linux]
-    - test -f ${PREFIX}/lib/lib{{ name }}.dylib     # [osx]
-    # Cannot run tests for python library as sageruntime is required.
-    - test -f $SP_DIR/brial/PyPolyBoRi.py
 
 outputs:
   - name: libbrial
@@ -58,6 +49,11 @@ outputs:
         - libpng
         - m4ri
         - zlib
+    test:
+      commands:
+        - test -f ${PREFIX}/include/polybori.h
+        - test -f ${PREFIX}/lib/libbrial.so     # [linux]
+        - test -f ${PREFIX}/lib/libbrial.dylib  # [osx]
 
   - name: brial
     build:
