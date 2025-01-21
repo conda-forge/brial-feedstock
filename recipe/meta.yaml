@@ -1,4 +1,9 @@
 {% set version = "1.2.12" %}
+# smithy doesn't populate python_min everywhere, and conda-build cannot
+# even render the skipped output without knowing this value
+{% if python_min is undefined %}
+{% set python_min = "3.9" %}
+{% endif %}
 
 package:
   name: brial-split
