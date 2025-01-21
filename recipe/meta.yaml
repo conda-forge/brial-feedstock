@@ -62,6 +62,8 @@ outputs:
   - name: brial
     build:
       noarch: python
+      # noarch only built on linux64
+      skip: true  # [not linux64]
     script: build_brial.sh
     requirements:
       build:
@@ -75,6 +77,11 @@ outputs:
       run:
         - python >={{ python_min }}
         - libbrial {{ version }}
+    test:
+      requires:
+        - python {{ python_min }}
+      imports:
+        - brial
 
 about:
   home: https://github.com/BRiAl/BRiAl
