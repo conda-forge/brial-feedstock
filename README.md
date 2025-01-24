@@ -3,6 +3,54 @@ About brial-split-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/brial-feedstock/blob/main/LICENSE.txt)
 
+
+About brial-split
+-----------------
+
+Home: https://github.com/BRiAl/BRiAl
+
+Package license: GPL-2.0-or-later
+
+Summary: Brial - successor to PolyBoRi
+
+Development: https://github.com/BRiAl/BRiAl
+
+The core of PolyBoRi is a C++ library, which provides high-level data
+types for Boolean polynomials and monomials, exponent vectors, as well
+as for the underlying polynomial rings and subsets of the powerset of
+the Boolean variables. As a unique approach, binary decision diagrams
+are used as internal storage type for polynomial structures. On top of
+this C++-library we provide a Python interface. This allows parsing of
+complex polynomial systems, as well as sophisticated and extendable
+strategies for GrÃ¶bner base computation. PolyBoRi features a powerful
+reference implementation for GrÃ¶bner basis computation.
+
+
+About libbrial
+--------------
+
+Home: https://github.com/BRiAl/BRiAl
+
+Package license: GPL-2.0-or-later
+
+Summary: Brial - successor to PolyBoRi
+
+Development: https://github.com/BRiAl/BRiAl
+
+The core of PolyBoRi is a C++ library, which provides high-level data
+types for Boolean polynomials and monomials, exponent vectors, as well
+as for the underlying polynomial rings and subsets of the powerset of
+the Boolean variables. As a unique approach, binary decision diagrams
+are used as internal storage type for polynomial structures. On top of
+this C++-library we provide a Python interface. This allows parsing of
+complex polynomial systems, as well as sophisticated and extendable
+strategies for Gröbner base computation. PolyBoRi features a powerful
+reference implementation for Gröbner basis computation.
+
+
+About brial
+-----------
+
 Home: https://github.com/BRiAl/BRiAl
 
 Package license: GPL-2.0-or-later
