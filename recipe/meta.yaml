@@ -1,8 +1,7 @@
 {% set version = "1.2.12" %}
-{% set name = "brial-split" %}
 
 package:
-  name: {{ name }}
+  name: brial-split
   version: {{ version }}
 
 source:
@@ -10,7 +9,7 @@ source:
   sha256: ca009e3722dd3f0a60d15501caed1413146c80abced57423e32ae0116f407494
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
   ignore_run_exports_from:
     - libboost-devel
@@ -23,14 +22,6 @@ requirements:
     - libtool
     - pkg-config
     - make
-
-test:
-  commands:
-    - test -f ${PREFIX}/include/polybori.h
-    - test -f ${PREFIX}/lib/lib{{ name }}.so        # [linux]
-    - test -f ${PREFIX}/lib/lib{{ name }}.dylib     # [osx]
-    # Cannot run tests for python library as sageruntime is required.
-    - test -f $SP_DIR/brial/PyPolyBoRi.py
 
 outputs:
   - name: libbrial
@@ -58,22 +49,37 @@ outputs:
         - libpng
         - m4ri
         - zlib
+    test:
+      commands:
+        - test -f ${PREFIX}/include/polybori.h
+        - test -f ${PREFIX}/lib/libbrial.so     # [linux]
+        - test -f ${PREFIX}/lib/libbrial.dylib  # [osx]
 
   - name: brial
     build:
       noarch: python
+      # noarch only built on linux64
+      skip: true  # [not linux64]
     script: build_brial.sh
     requirements:
       build:
-        - python                                 # [build_platform != target_platform]
+        - python {{ python_min }}                # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
-        - python
+        - python {{ python_min }}
         - pip
+        - setuptools
         - libbrial {{ version }}
       run:
-        - python
+        - python >={{ python_min }}
         - libbrial {{ version }}
+    test:
+      requires:
+        - python {{ python_min }}
+      # We cannot test the Python module because it dependes on sagelib which depends on this Python module in turn.
+      # The next version of brial removes the python module altogether since it is now a part of sagelib itself.
+      # imports:
+      #   - brial
 
 about:
   home: https://github.com/BRiAl/BRiAl
