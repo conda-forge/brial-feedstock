@@ -76,8 +76,10 @@ outputs:
     test:
       requires:
         - python {{ python_min }}
-      imports:
-        - brial
+      # We cannot test the Python module because it dependes on sagelib which depends on this Python module in turn.
+      # The next version of brial removes the python module altogether since it is now a part of sagelib itself.
+      # imports:
+      #   - brial
 
 about:
   home: https://github.com/BRiAl/BRiAl
