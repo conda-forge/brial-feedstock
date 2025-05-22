@@ -1,4 +1,4 @@
-{% set version = "1.2.12" %}
+{% set version = "1.2.14" %}
 
 package:
   name: brial-split
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/BRiAl/BRiAl/releases/download/{{ version }}/brial-{{ version }}.tar.bz2
-  sha256: ca009e3722dd3f0a60d15501caed1413146c80abced57423e32ae0116f407494
+  sha256: 48cd95f167381699e2c538bfbf6eac35ca046dee79f797059f3879abdf5b7e66
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win]
   ignore_run_exports_from:
     - libboost-devel
