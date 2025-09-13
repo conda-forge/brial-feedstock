@@ -22,8 +22,6 @@ libboost_devel:
 - '1.88'
 libpng:
 - '1.6'
-python_min:
-- '3.10'
 target_platform:
 - linux-aarch64
 zip_keys:

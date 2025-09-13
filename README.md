@@ -87,7 +87,6 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-brial-green.svg)](https://anaconda.org/conda-forge/brial) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/brial.svg)](https://anaconda.org/conda-forge/brial) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/brial.svg)](https://anaconda.org/conda-forge/brial) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/brial.svg)](https://anaconda.org/conda-forge/brial) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libbrial-green.svg)](https://anaconda.org/conda-forge/libbrial) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libbrial.svg)](https://anaconda.org/conda-forge/libbrial) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libbrial.svg)](https://anaconda.org/conda-forge/libbrial) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libbrial.svg)](https://anaconda.org/conda-forge/libbrial) |
 
 Installing brial-split
@@ -100,41 +99,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `brial, libbrial` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libbrial` can be installed with `conda`:
 
 ```
-conda install brial libbrial
-```
-
-or with `mamba`:
-
-```
-mamba install brial libbrial
-```
-
-It is possible to list all of the versions of `brial` available on your platform with `conda`:
-
-```
-conda search brial --channel conda-forge
+conda install libbrial
 ```
 
 or with `mamba`:
 
 ```
-mamba search brial --channel conda-forge
+mamba install libbrial
+```
+
+It is possible to list all of the versions of `libbrial` available on your platform with `conda`:
+
+```
+conda search libbrial --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libbrial --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search brial --channel conda-forge
+mamba repoquery search libbrial --channel conda-forge
 
-# List packages depending on `brial`:
-mamba repoquery whoneeds brial --channel conda-forge
+# List packages depending on `libbrial`:
+mamba repoquery whoneeds libbrial --channel conda-forge
 
-# List dependencies of `brial`:
-mamba repoquery depends brial --channel conda-forge
+# List dependencies of `libbrial`:
+mamba repoquery depends libbrial --channel conda-forge
 ```
 
 
