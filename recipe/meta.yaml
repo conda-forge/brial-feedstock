@@ -55,32 +55,6 @@ outputs:
         - test -f ${PREFIX}/lib/libbrial.so     # [linux]
         - test -f ${PREFIX}/lib/libbrial.dylib  # [osx]
 
-  - name: brial
-    build:
-      noarch: python
-      # noarch only built on linux64
-      skip: true  # [not linux64]
-    script: build_brial.sh
-    requirements:
-      build:
-        - python {{ python_min }}                # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-      host:
-        - python {{ python_min }}
-        - pip
-        - setuptools
-        - libbrial {{ version }}
-      run:
-        - python >={{ python_min }}
-        - libbrial {{ version }}
-    test:
-      requires:
-        - python {{ python_min }}
-      # We cannot test the Python module because it dependes on sagelib which depends on this Python module in turn.
-      # The next version of brial removes the python module altogether since it is now a part of sagelib itself.
-      # imports:
-      #   - brial
-
 about:
   home: https://github.com/BRiAl/BRiAl
   license: GPL-2.0-or-later
