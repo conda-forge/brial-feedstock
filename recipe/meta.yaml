@@ -9,7 +9,7 @@ source:
   sha256: 1d0e7de01b1b60ad892dee6c02503f5932e2ed211f3f8dbdf1a3216c696ef201
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   ignore_run_exports_from:
     - libboost-devel
