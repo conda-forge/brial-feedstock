@@ -20,7 +20,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - libtool
-    - pkg-config
+    - pkgconf
     - make
 
 outputs:
@@ -37,7 +37,7 @@ outputs:
         - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - libtool
-        - pkg-config
+        - pkgconf
         - make
         - gnuconfig
       host:
